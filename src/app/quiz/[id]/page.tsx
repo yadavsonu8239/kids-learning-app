@@ -53,11 +53,11 @@ export default function QuizScreen() {
         if (!currentQuestion) return;
 
         if (isSpeaking) {
-            textToSpeech.stop();
+            textToSpeech?.stop();
             setIsSpeaking(false);
         } else {
             setIsSpeaking(true);
-            textToSpeech.speak(currentQuestion.text, {
+            textToSpeech?.speak(currentQuestion.text, {
                 rate: 0.8,
                 pitch: 1.2
             });
@@ -126,7 +126,7 @@ export default function QuizScreen() {
         setSelectedAnswer('');
         setVoiceAnswer('');
         setShowFeedback(false);
-        textToSpeech.stop();
+        textToSpeech?.stop();
         setIsSpeaking(false);
     };
 
@@ -136,7 +136,7 @@ export default function QuizScreen() {
             setSelectedAnswer('');
             setVoiceAnswer('');
             setShowFeedback(false);
-            textToSpeech.stop();
+            textToSpeech?.stop();
             setIsSpeaking(false);
         }
     };
