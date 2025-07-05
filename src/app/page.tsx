@@ -3,9 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/Button';
-import { PlayIcon, FilmIcon, StarIcon, TrophyIcon } from '@heroicons/react/24/solid';
+import { PlayIcon, FilmIcon, TrophyIcon } from '@heroicons/react/24/solid';
 import { useAppStore } from '@/stores/appStore';
-import { ScoreStars } from '@/components/ScoreStars';
 
 export default function HomePage() {
   const router = useRouter();

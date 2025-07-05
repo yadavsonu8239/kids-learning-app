@@ -77,7 +77,7 @@ export default function QuizResultPage() {
                 <div className="text-center">
                     <div className="text-4xl mb-4">🤔</div>
                     <h2 className="text-xl font-bold text-gray-600 mb-2">Quiz results not found</h2>
-                    <p className="text-gray-500 mb-6">Let's get you back to the quizzes!</p>
+                    <p className="text-gray-500 mb-6">Let&apos;s get you back to the quizzes!</p>
                     <Button variant="primary" onClick={handleViewQuizzes}>
                         View Quizzes
                     </Button>
@@ -118,12 +118,12 @@ export default function QuizResultPage() {
                 <h1 className="text-3xl font-bold text-gray-800 mb-2">
                     {quiz.title} Results
                 </h1>
-                <p className="text-gray-600">Here's how you did!</p>
+                <p className="text-gray-600">Here&apos;s how you did!</p>
             </div>
 
             {/* Score Card */}
             <div className={`bg-white rounded-2xl shadow-lg p-6 mb-6 border-l-4 ${latestResult.score >= 80 ? 'border-green-500' :
-                    latestResult.score >= 60 ? 'border-yellow-500' : 'border-blue-500'
+                latestResult.score >= 60 ? 'border-yellow-500' : 'border-blue-500'
                 }`}>
                 <div className="text-center">
                     <div className={`inline-flex items-center px-4 py-2 rounded-full text-lg font-bold mb-4 ${scoreInfo.bg} ${scoreInfo.color}`}>

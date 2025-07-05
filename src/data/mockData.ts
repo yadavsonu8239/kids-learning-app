@@ -1,4 +1,4 @@
-import { Quiz, Video, Question } from '@/types';
+import { Quiz, Video } from '@/types';
 
 export const mockQuizzes: Quiz[] = [
   {

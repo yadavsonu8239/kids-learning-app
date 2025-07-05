@@ -1,8 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
+
+declare global {
+    interface Window {
+        videoInterval?: NodeJS.Timeout;
+    }
+}
 import { Button } from '@/components/Button';
 import { QuizCard } from '@/components/QuizCard';
 import { VideoCard } from '@/components/VideoCard';
@@ -11,7 +18,6 @@ import { useAppStore } from '@/stores/appStore';
 import { formatTime } from '@/lib/speechUtils';
 import {
     PlayIcon,
-    PauseIcon,
     HomeIcon,
     ArrowLeftIcon,
     SparklesIcon,
@@ -50,9 +56,9 @@ export default function VideoPlayerPage() {
 
         // Cleanup interval on unmount
         return () => {
-            if ((window as any).videoInterval) {
-                clearInterval((window as any).videoInterval);
-                (window as any).videoInterval = null;
+            if (window.videoInterval) {
+                clearInterval(window.videoInterval);
+                window.videoInterval = undefined;
             }
         };
     }, [video, currentTime, hasWatched, markVideoComplete, videoId, router]);
@@ -74,12 +80,12 @@ export default function VideoPlayerPage() {
             }, 1000);
 
             // Store interval reference to clear it later
-            (window as any).videoInterval = interval;
+            window.videoInterval = interval;
         } else {
             // Clear the interval when pausing
-            if ((window as any).videoInterval) {
-                clearInterval((window as any).videoInterval);
-                (window as any).videoInterval = null;
+            if (window.videoInterval) {
+                clearInterval(window.videoInterval);
+                window.videoInterval = undefined;
             }
         }
     };
@@ -106,7 +112,7 @@ export default function VideoPlayerPage() {
                 <div className="text-center">
                     <div className="text-4xl mb-4">📹</div>
                     <h2 className="text-xl font-bold text-gray-600 mb-2">Video not found</h2>
-                    <p className="text-gray-500 mb-6">Let's get you back to the videos!</p>
+                    <p className="text-gray-500 mb-6">Let&apos;s get you back to the videos!</p>
                     <Button variant="primary" onClick={() => router.push('/videos')}>
                         Browse Videos
                     </Button>
@@ -159,10 +165,11 @@ export default function VideoPlayerPage() {
                     {!isPlaying ? (
                         // Thumbnail with play button when not playing
                         <div className="relative w-full h-full">
-                            <img
+                            <Image
                                 src={video.thumbnailUrl}
                                 alt={video.title}
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                                 onError={(e) => {
                                     // Fallback to placeholder if thumbnail fails to load
                                     e.currentTarget.style.display = 'none';

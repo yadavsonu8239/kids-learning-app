@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from './Button';
 import { ageGroups } from '@/data/mockData';
 
 interface AgeFilterBarProps {

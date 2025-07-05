@@ -16,7 +16,7 @@ import {
     ArrowLeftIcon,
     HomeIcon
 } from '@heroicons/react/24/solid';
-import { Quiz, Question } from '@/types';
+import { Quiz } from '@/types';
 
 export default function QuizScreen() {
     const router = useRouter();
@@ -34,7 +34,6 @@ export default function QuizScreen() {
     const [showFeedback, setShowFeedback] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
     const [startTime, setStartTime] = useState<number>(Date.now());
-    const [questionStartTime, setQuestionStartTime] = useState<number>(Date.now());
 
     useEffect(() => {
         const foundQuiz = mockQuizzes.find(q => q.id === quizId);
@@ -42,7 +41,6 @@ export default function QuizScreen() {
             setQuiz(foundQuiz);
             setCurrentQuiz(foundQuiz);
             setStartTime(Date.now());
-            setQuestionStartTime(Date.now());
         } else {
             router.push('/quizzes');
         }
@@ -128,7 +126,6 @@ export default function QuizScreen() {
         setSelectedAnswer('');
         setVoiceAnswer('');
         setShowFeedback(false);
-        setQuestionStartTime(Date.now());
         textToSpeech.stop();
         setIsSpeaking(false);
     };
@@ -139,7 +136,6 @@ export default function QuizScreen() {
             setSelectedAnswer('');
             setVoiceAnswer('');
             setShowFeedback(false);
-            setQuestionStartTime(Date.now());
             textToSpeech.stop();
             setIsSpeaking(false);
         }
@@ -332,7 +328,7 @@ export default function QuizScreen() {
                                         Submit
                                     </Button>
                                 </div>
-                                <p className="text-gray-800 italic">"{voiceAnswer}"</p>
+                                <p className="text-gray-800 italic">&quot;{voiceAnswer}&quot;</p>
                             </div>
                         )}
                     </div>

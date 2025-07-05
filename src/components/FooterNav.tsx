@@ -6,14 +6,12 @@ import {
     HomeIcon,
     PlayIcon,
     FilmIcon,
-    CogIcon,
     UserIcon
 } from '@heroicons/react/24/outline';
 import {
     HomeIcon as HomeIconSolid,
     PlayIcon as PlayIconSolid,
     FilmIcon as FilmIconSolid,
-    CogIcon as CogIconSolid,
     UserIcon as UserIconSolid
 } from '@heroicons/react/24/solid';
 

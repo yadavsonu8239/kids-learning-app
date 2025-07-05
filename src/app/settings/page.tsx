@@ -8,8 +8,7 @@ import { badges } from '@/data/mockData';
 import {
     UserIcon,
     CogIcon,
-    TrophyIcon,
-    StarIcon
+    TrophyIcon
 } from '@heroicons/react/24/solid';
 
 export default function SettingsPage() {
@@ -113,7 +112,7 @@ export default function SettingsPage() {
                                 <option value="">Select your age</option>
                                 {Array.from({ length: 15 }, (_, i) => i + 1).map(ageOption => (
                                     <option key={ageOption} value={ageOption}>
-                                        {ageOption} year{ageOption > 1 ? 's' : ''} old
+                                        {ageOption} year{ageOption > 1 ? & apos;s&apos; : &apos;&apos;} old
                                     </option>
                                 ))}
                             </select>
@@ -205,7 +204,7 @@ export default function SettingsPage() {
                             >
                                 {Array.from({ length: 15 }, (_, i) => i + 1).map(ageOption => (
                                     <option key={ageOption} value={ageOption}>
-                                        {ageOption} year{ageOption > 1 ? 's' : ''} old
+                                        {ageOption} year{ageOption > 1 ? & apos;s&apos; : &apos;&apos;} old
                                     </option>
                                 ))}
                             </select>

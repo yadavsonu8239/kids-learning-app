@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Video } from '@/types';
 import { Button } from './Button';
 import { PlayIcon, ClockIcon, EyeIcon } from '@heroicons/react/24/solid';
@@ -51,10 +52,11 @@ export const VideoCard: React.FC<VideoCardProps> = ({
             <div className="relative">
                 <div className="aspect-video bg-gradient-to-br from-blue-400 to-purple-500 overflow-hidden relative">
                     {/* Actual video thumbnail */}
-                    <img
+                    <Image
                         src={video.thumbnailUrl}
                         alt={video.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         onError={(e) => {
                             // Fallback to placeholder if thumbnail fails to load
                             e.currentTarget.style.display = 'none';

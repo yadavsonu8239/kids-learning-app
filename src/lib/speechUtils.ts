@@ -109,9 +109,9 @@ export class SpeechToText {
 
   constructor() {
     if ('webkitSpeechRecognition' in window) {
-      this.recognition = new (window as any).webkitSpeechRecognition();
+      this.recognition = new window.webkitSpeechRecognition();
     } else if ('SpeechRecognition' in window) {
-      this.recognition = new (window as any).SpeechRecognition();
+      this.recognition = new window.SpeechRecognition();
     } else {
       this.recognition = null;
     }
@@ -163,7 +163,7 @@ export class SpeechToText {
     try {
       this.recognition.start();
       this.isListening = true;
-    } catch (error) {
+    } catch {
       onError?.('Failed to start speech recognition');
     }
   }
