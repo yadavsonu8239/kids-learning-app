@@ -109,9 +109,9 @@ export class SpeechToText {
 
   constructor() {
     if ('webkitSpeechRecognition' in window) {
-      this.recognition = new window.webkitSpeechRecognition();
+      this.recognition = new (window as any).webkitSpeechRecognition();
     } else if ('SpeechRecognition' in window) {
-      this.recognition = new window.SpeechRecognition();
+      this.recognition = new (window as any).SpeechRecognition();
     } else {
       this.recognition = null;
     }
