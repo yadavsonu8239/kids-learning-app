@@ -70,7 +70,7 @@ export default function QuizScreen() {
     };
 
     const handleStartListening = () => {
-        if (!speechToText.isSupported()) {
+        if (!speechToText?.isSupported()) {
             alert('Speech recognition is not supported in your browser');
             return;
         }
@@ -78,7 +78,7 @@ export default function QuizScreen() {
         setIsListening(true);
         setVoiceAnswer('');
 
-        speechToText.startListening(
+        speechToText?.startListening(
             (transcript, confidence) => {
                 setVoiceAnswer(transcript);
                 setIsListening(false);
@@ -93,7 +93,7 @@ export default function QuizScreen() {
     };
 
     const handleStopListening = () => {
-        speechToText.stopListening();
+        speechToText?.stopListening();
         setIsListening(false);
     };
 
