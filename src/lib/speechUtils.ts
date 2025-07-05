@@ -109,8 +109,10 @@ export class SpeechToText {
 
   constructor() {
     if ('webkitSpeechRecognition' in window) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       this.recognition = new (window as any).webkitSpeechRecognition();
     } else if ('SpeechRecognition' in window) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       this.recognition = new (window as any).SpeechRecognition();
     } else {
       this.recognition = null;
