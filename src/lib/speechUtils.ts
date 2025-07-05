@@ -224,5 +224,5 @@ export function isAnswerCorrect(userAnswer: string, correctAnswer: string): bool
 }
 
 // Create singleton instances
-export const textToSpeech = new TextToSpeech();
-export const speechToText = new SpeechToText(); 
+export const textToSpeech = typeof window !== "undefined" ? new TextToSpeech() : null;
+export const speechToText = typeof window !== "undefined" ? new SpeechToText() : null; 
