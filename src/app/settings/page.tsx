@@ -83,13 +83,13 @@ export default function SettingsPage() {
                     <div className="text-center mb-6">
                         <div className="text-6xl mb-4">👋</div>
                         <h1 className="text-2xl font-bold text-gray-800 mb-2">Welcome!</h1>
-                        <p className="text-gray-600">Let's set up your profile to get started</p>
+                        <p className="text-gray-600">Let&apos;s set up your profile to get started</p>
                     </div>
 
                     <div className="space-y-4">
                         <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                What's your name?
+                                What&apos;s your name?
                             </label>
                             <input
                                 type="text"
